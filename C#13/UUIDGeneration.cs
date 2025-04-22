@@ -13,7 +13,6 @@
             Console.WriteLine($"v7 GUID: {guid}", guid);
             guid = Guid.CreateVersion7(TimeProvider.System.GetUtcNow()); // v7 UUID with timestamp
             Console.WriteLine($"v7 GUID with timestamp: {guid}", guid);
-
         }
     }
 }

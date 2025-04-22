@@ -20,7 +20,6 @@
                 Console.WriteLine($"Old Buffer[{i}] = {oldBuffer[i]}");
             }
 
-
             //after
             newBuffer[^1] = 5; //assign 5 to last element
             newBuffer[^2] = 15; //last to second element
@@ -33,7 +32,5 @@
                 Console.WriteLine($"New Buffer[{i}] = {newBuffer[i]}");
             }
         }
-
     }
-
 }

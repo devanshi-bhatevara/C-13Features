@@ -5,9 +5,7 @@
         //same as partial class we can now define partial properties as well
         //declaration
         public partial string Name { get; set; }
-
     }
-
 
     public partial class PartialProperties
     {

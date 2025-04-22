@@ -6,10 +6,10 @@
         public static void Run()
         {
             //before
-            string red = "\u001b[31m";    // Start red color
-            string reset = "\u001b[0m";
+            string redOld = "\u001b[31m";    // Start red color
+            string resetOld = "\u001b[0m";   // Reset color
 
-            Console.WriteLine($"{red}This is RED text using old escape sequence{reset}");
+            Console.WriteLine($"{redOld}This is RED text using old escape sequence{resetOld}");
             Console.WriteLine("This is normal text.");
 
             //after

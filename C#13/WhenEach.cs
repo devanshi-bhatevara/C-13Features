@@ -12,9 +12,8 @@
              })
               .ToList();
 
-
             //Before
-           //we had to manage the tasks queue and maintain their state by removing them from list
+            //we had to manage the tasks queue and maintain their state by removing them from list
             //while (tasks.Count > 0)
             //{
             //    var completedTask = await Task.WhenAny(tasks);
@@ -29,7 +28,5 @@
             await foreach (var completedTask in Task.WhenEach(tasks))
                 Console.WriteLine(await completedTask);
         }
-
-
     }
 }

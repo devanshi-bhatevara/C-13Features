@@ -6,7 +6,6 @@ namespace CSharp13
     {
         public static void Run()
         {
-           
             var text = "Hello world! Welcome to C# 13 features POC".AsSpan();
 
             //Before 

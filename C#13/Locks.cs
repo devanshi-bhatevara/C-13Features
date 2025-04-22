@@ -16,15 +16,12 @@
                 Console.WriteLine("We're inside old lock");
             }
 
-
             Console.WriteLine("New lock object using System.Threading");
 
-           lock(_newLock)
+            lock (_newLock)
             {
                 Console.WriteLine("We're inside new lock");
             }
-        
-        
         }
     }
 }
