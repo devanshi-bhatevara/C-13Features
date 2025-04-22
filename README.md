@@ -4,6 +4,7 @@ Ensure you have the following tools and configurations set up before diving into
 
 - ✅ **.NET SDK 9 Preview** or higher  
   Make sure you’ve installed the preview version of .NET 9 from the official [.NET downloads](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) page.
+  Also for a few features you may require .NET 9 preview version 
 
 - ✅ **Visual Studio 2022/2025 Preview**  
   With support for .NET 9 and C# 13 (ensure `.NET 9` is selected during installation via the Visual Studio Installer).
@@ -37,6 +38,7 @@ C# 13, released in November 2024 alongside .NET 9, introduces several enhancemen
 The new escape sequence `\e` introduced in C# 13 represents the ASCII escape character (`U+001B`). It is commonly used for terminal control codes, such as coloring console output. Previously, this character had to be inserted using Unicode or numeric escape syntax. Now, `\e` provides a more readable and concise way to include it in strings.
   
 ![carbon](https://github.com/user-attachments/assets/95f7dd0a-dccc-4853-9b8e-4623182d8a99)
+![image](https://github.com/user-attachments/assets/bea93b5a-8d37-4255-846f-897dbc278f05)
 
 - Click for demo: [EscapeSequence.cs](./C%2313/EscapeSequence.cs)
 
@@ -44,6 +46,7 @@ The new escape sequence `\e` introduced in C# 13 represents the ASCII escape cha
 It is a new feature in C# 13 that allows you to access the last elements of an array or list using the [^] syntax more intuitively. Instead of writing array[array.Length - 1], you can now simply write array[^1] to get the last item. This improves code readability and reduces chances of off-by-one errors, especially in collections.
   
 ![carbon (1)](https://github.com/user-attachments/assets/32670580-6717-4597-af7a-45220addb17c)
+![image](https://github.com/user-attachments/assets/d3864f04-705d-4935-b476-4fcdc9386753)
 
 - Click for demo: [ImplicitIndexAccess.cs](./C%2313/ImplicitIndexAccess.cs)
 
@@ -72,6 +75,7 @@ C# 13 introduces partial properties, allowing you to split the definition of a p
 In earlier versions of C#, searching values typically worked with characters or bytes. However, in C# 13, this functionality has been extended to support string types as well, allowing for more flexible and efficient searches within text-based data.
   
 ![carbon (5)](https://github.com/user-attachments/assets/19702b40-838b-4265-a7c3-94f3a36c12fa)
+![image](https://github.com/user-attachments/assets/dd7fb428-3552-474e-8225-7899a2fae406)
 
 - Click for demo: [SearchValues.cs](./C%2313/SearchValues.cs)
 
@@ -79,6 +83,7 @@ In earlier versions of C#, searching values typically worked with characters or 
 The UUIDGeneration class introduces a new internal method for UUID generation, which eliminates the need for external libraries. Previously, developers relied on external libraries for GUID generation, typically using Guid.NewGuid() to create a version 4 UUID. With C# 13, the Guid.CreateVersion7() method is introduced, which generates a version 7 UUID directly within the .NET library, offering a timestamp-based UUID for better traceability. Additionally, the method allows you to provide a custom timestamp using TimeProvider.System.GetUtcNow(), enabling more precise UUID creation.
  
 ![carbon (6)](https://github.com/user-attachments/assets/e51beeab-8a93-46f5-95a9-2be7b1fa7096)
+![image](https://github.com/user-attachments/assets/30d35969-5ae4-43dc-a5e2-a0ba5d198d29)
 
 - Click for demo: [UUIDGeneration.cs](./C%2313/UUIDGeneration.cs)
 
@@ -124,7 +129,7 @@ In C# 13, async and iterator methods can now use `ref` variables or variables fr
 
 For more details refer: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-13.0/ref-unsafe-in-iterators-async
 
-  ## 🛠️ How to Implement the Solution
+## 🛠️ How to Implement the Solution
 
 1. **Clone the Repository**
    ```bash
