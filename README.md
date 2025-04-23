@@ -27,17 +27,17 @@ C# 13, released in November 2024 alongside .NET 9, introduces several enhancemen
 - **Search Value improvements**: Enhancement in `SearchValues<T>`
 - **UUID Generation**: UUID generation improvements
 - **Task.WhenEach**: Run multiple tasks and process their results individually as they complete.
-- **Method group natural type improvements**: Enhancing type inference for method groups.
 - **Overload resolution priority**: Allowing developers to specify preferred method overloads.
 - **Field Keyword**: Makes accessing and modifying the backing field easier and cleaner
 - **Support for `ref struct` types in interfaces and generics**: Expanding the usability of `ref struct` types.
+- **Method group natural type improvements**: Enhancing type inference for method groups.
 - **Support for `ref` and `unsafe` in async methods and iterators**: Allowing more scenarios for performance-critical code.
 
-  ## 📌 Let's explore all the features one by one
+  ## 📌 Deep Dive into C# 13 Features
 ### 1. Escape Sequence (`\e`):
 The new escape sequence `\e` introduced in C# 13 represents the ASCII escape character (`U+001B`). It is commonly used for terminal control codes, such as coloring console output. Previously, this character had to be inserted using Unicode or numeric escape syntax. Now, `\e` provides a more readable and concise way to include it in strings.
   
-![carbon](https://github.com/user-attachments/assets/95f7dd0a-dccc-4853-9b8e-4623182d8a99)
+![carbon (13)](https://github.com/user-attachments/assets/53f53b61-4888-46da-92b4-b4660aadb922)
 ![image](https://github.com/user-attachments/assets/bea93b5a-8d37-4255-846f-897dbc278f05)
 
 - Click for demo: [EscapeSequence.cs](./C%2313/EscapeSequence.cs)
@@ -45,7 +45,7 @@ The new escape sequence `\e` introduced in C# 13 represents the ASCII escape cha
 ### 2. Implicit Index Access [^]:
 It is a new feature in C# 13 that allows you to access the last elements of an array or list using the [^] syntax more intuitively. Instead of writing array[array.Length - 1], you can now simply write array[^1] to get the last item. This improves code readability and reduces chances of off-by-one errors, especially in collections.
   
-![carbon (1)](https://github.com/user-attachments/assets/32670580-6717-4597-af7a-45220addb17c)
+![carbon (12)](https://github.com/user-attachments/assets/164a2b1e-e1bb-4b3e-b9a4-3a6a9dc064e4)
 ![image](https://github.com/user-attachments/assets/d3864f04-705d-4935-b476-4fcdc9386753)
 
 - Click for demo: [ImplicitIndexAccess.cs](./C%2313/ImplicitIndexAccess.cs)
@@ -94,19 +94,14 @@ The Task.WhenEach method allows us to iterate through tasks as they complete, wi
 
 - Click for demo: [WhenEach.cs](./C%2313/WhenEach.cs)
 
-### 9. Method group natural type:
-This feature improves how the compiler handles method groups, which consist of a method and all its overloads with the same name. In the past, the compiler would check all possible methods for a method group to find the right one. Now, the compiler prunes or removes methods that don't apply at each scope, like those with the wrong number of parameters or missing required constraints. This makes the process more efficient and matches how overload resolution usually works. If no suitable methods are found in a given scope, the method group won't have a natural type.
-
-For more details refer: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-13.0/method-group-natural-type-improvements
-
-### 10. Overload Resolution Priority:
+### 9. Overload Resolution Priority:
 The OverloadResolutionPriorityAttribute lets you tell the compiler which method overload to prefer when there are multiple options. This is useful for library authors who want to add a better or more efficient method without breaking existing code. By assigning a higher priority to the new overload, the compiler will choose it when the code is recompiled.
 
 ![carbon (8)](https://github.com/user-attachments/assets/f75abb8e-165b-48af-a222-b97f5c846a7c)
 
 - Click for demo: [OverloadResolution.cs](./C%2313/OverloadResolution.cs)
 
-### 11. The field keyword:
+### 10. The field keyword:
 The field keyword is used within property accessors to refer to the backing field of an auto-property. This allows developers to access and modify the backing field directly within property setters and getters without exposing it to the rest of the class. It provides more control over property behavior, such as lazy initialization or validation, while maintaining cleaner code by avoiding manually declared backing fields.
 
 ![carbon (9)](https://github.com/user-attachments/assets/4087beed-95c5-4d9b-938a-c1ce7ec2a170)
@@ -115,14 +110,19 @@ The field keyword is used within property accessors to refer to the backing fiel
 
 > **Note:** For the `field` keyword to work in C# 13, you must set `<LangVersion>preview</LangVersion>` in your `.csproj` file.
 
-### 12. Ref Struct Types Can Implement Interfaces:
+### 11. Ref Struct Types Can Implement Interfaces:
 In C# 13, ref struct types can now implement interfaces and participate as generic type arguments. However, since they are stack-allocated by design (to avoid heap allocations and boxing), they can't be assigned to interface variables. This gives you the performance benefits of stack-based types while still enabling code reuse through interfaces.
 
 ![carbon (10)](https://github.com/user-attachments/assets/e1c791e4-af56-4b05-a9b8-df444515be5c)
 
 - Click for demo: [RefStructType.cs](./C%2313/RefStructType.cs)
 
-For more details refer: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct 
+For more details refer: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/ref-struct
+
+### 12. Method group natural type:
+This feature improves how the compiler handles method groups, which consist of a method and all its overloads with the same name. In the past, the compiler would check all possible methods for a method group to find the right one. Now, the compiler prunes or removes methods that don't apply at each scope, like those with the wrong number of parameters or missing required constraints. This makes the process more efficient and matches how overload resolution usually works. If no suitable methods are found in a given scope, the method group won't have a natural type.
+
+For more details refer: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-13.0/method-group-natural-type-improvements
 
 ### 13. Ref and unsafe in iterators and async methods:
 In C# 13, async and iterator methods can now use `ref` variables or variables from `ref struct` types, which wasn't possible before. However, these variables can’t be used after an `await` or `yield return` statement. This change makes it safer to use types like `System.ReadOnlySpan<T>` in these methods. Also, iterator methods can now have unsafe code, but the `yield return` and `yield break` statements must still be safe.
