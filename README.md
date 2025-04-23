@@ -53,7 +53,7 @@ It is a new feature in C# 13 that allows you to access the last elements of an a
  ### 3. Locks :
 A new System.Threading.Lock type has been introduced as a modern alternative to the traditional lock keyword. It provides a more flexible and safer way to manage synchronization in multithreaded applications. Unlike the lock statement, it supports async/await patterns and offers explicit control over lock acquisition and release through a disposable scope. This makes it especially useful in asynchronous or complex locking scenarios.
   
-![carbon (2)](https://github.com/user-attachments/assets/46560b18-464a-494b-86f3-3639ef5dc181)
+![carbon (11)](https://github.com/user-attachments/assets/554ed964-1bbe-4466-a70d-6e8b183a7828)
 
 - Click for demo: [Locks.cs](./C%2313/Locks.cs)
 
